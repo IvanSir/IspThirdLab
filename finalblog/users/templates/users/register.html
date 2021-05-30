@@ -1,0 +1,24 @@
+{% extends "users/base.html" %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+
+    <h1>Create an account</h1>
+    <div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.username.label }} {{ form.username }} <br>
+            {{ form.first_name.label }} {{ form.first_name }} <br>
+            {{ form.last_name.label }} {{ form.last_name }} <br>
+            {{ form.email.label }} <br> {{ form.email }} <br>
+            {{ form.password.label }} {{ form.password }} <br>
+            {{ form.password2.label }} {{ form.password2 }} <br>
+        <br>
+        <p><input type="submit" value="Create my account"></p>
+    </form>
+    </div>
+{% endblock %}
+
+
+

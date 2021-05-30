@@ -1,0 +1,12 @@
+{% extends 'users/base.html' %}
+{% block content %}
+{% if object_list %}
+    <ul>
+    {% for post in object_list %}
+        <li><a href={% url 'detail_post' post.slug %}>{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts here...</p>
+{% endif %}
+{% endblock %}

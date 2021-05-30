@@ -1,0 +1,37 @@
+{% extends "users/base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+    <h2>{{ user.username}}</h2>
+<div>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div>
+            first name: {{ user.first_name }}
+        </div>
+        <div>
+            last name: {{ user.last_name }}
+        </div>
+        <div>
+            email: {{ user.email }}
+        </div>
+    <br>
+    <div>
+        <h4>Posts:</h4>
+        {% for post in posts %}
+            <a href = "{% url 'detail_post' post.slug %}">{{ post }}</a>
+            <br>
+        {% endfor %}
+    </div>
+    <div>
+        <h4>Roles:</h4>
+        {% for role in roles %}
+            {{ role }}
+            <br>
+        {% endfor %}
+    </div>
+    </form>
+</div>
+{% endblock %}
+
