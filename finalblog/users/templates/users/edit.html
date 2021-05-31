@@ -1,0 +1,21 @@
+{% extends "users/base.html" %}
+
+{% block title %}Edit account{% endblock %}
+
+{% block content %}
+
+    <h1>Edit account</h1>
+    <div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            Phone: <input type="text" name="phone">
+        </div>
+        <br>
+        <p><input type="submit" value="Edit"></p>
+    </form>
+    </div>
+{% endblock %}
+
+
+

@@ -1,3 +1,5 @@
+import profile
+
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -6,8 +8,8 @@ from django.views.generic import DetailView
 from mainblog.models import Post, Role
 from .forms import UserRegistrationForm
 
-
 # Create your views here.
+from .models import Account
 
 
 def register(request):
@@ -38,7 +40,7 @@ def my_login(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
-                return render(request, 'home.html', {})
+                return redirect('home')
         except:
             return render(request, 'users/login.html', {})
     else:
@@ -49,11 +51,9 @@ def my_logout(request):
     if request.method == 'GET':
         logout(request)
         return redirect('home')
-        # return render(request, 'home.html', {})
 
 
 class UserDetailView(DetailView):
-    # queryset = Post.objects.all()
     model = User
     template_name = 'users/profile.html'
 
@@ -61,10 +61,27 @@ class UserDetailView(DetailView):
         us_id = self.request.path.split('/')[2]
         context = super(UserDetailView, self).get_context_data(**kwargs)
         context['user'] = User.objects.get(id=us_id)
-        context['posts'] = Post.objects.filter(author_id=us_id)
-        context['roles'] = Role.objects.filter(users__role__users__exact=context['user'])
+        context['posts'] = Post.objects.select_related("author").filter(author_id=us_id)
+        context['roles'] = Role.objects.prefetch_related("users").filter(users=context['user'])
+        context['account'] = Account.objects.select_related("user").get(user_id=us_id)
         return context
-#
-# def user_profile(request):
-#
-#     return render(request, 'users/profile.html', {'user': })
+
+
+def update_account(request, pk):
+    if str(request.user.pk) != pk:
+        return redirect('home')
+    if request.method == 'POST':
+        phone = request.POST.get('phone')
+        user = User.objects.get(id=pk)
+        try:
+            if phone is None:
+                raise Exception
+            if Account.objects.get(user=user) is not None:
+                Account.objects.update(user=user, phone=phone)
+            else:
+                Account.objects.create(user=user, phone=phone)
+            return redirect('detail_user', pk)
+        except:
+            return render(request, 'users/edit.html', {})
+    else:
+        return render(request, 'users/edit.html', {})

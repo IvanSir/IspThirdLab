@@ -6,7 +6,13 @@
 
     <h2>{{ post.title }}</h2>
     <div>
-    {{ post.title }} by {{ post.author }} in {{ post.published }}
+        by <a href="{% url "detail_user" post.author.id %}"> {{ post.author }}</a> in {{ post.published }}
+        {% if post.author.id == request.user.id %}
+            <form method="POST"><a href="{% url "remove_post" post.slug%}">Remove</a>
+        <a href="{% url "update_post" post.slug%}">Edit</a>
+            </form>
+
+        {% endif %}
     <br/>
         {{ post.text }}
     </div>

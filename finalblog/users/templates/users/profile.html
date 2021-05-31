@@ -16,7 +16,17 @@
         <div>
             email: {{ user.email }}
         </div>
-    <br>
+    <div>
+    phone: {{ account.phone }}
+    {% if user == request.user %}
+        <small>
+            <form action="" method="POST">
+                    <a href="{% url 'update_account' user.pk %}">edit</a>
+            </form>
+        </small>
+    {% endif %}
+    </div>
+        <br>
     <div>
         <h4>Posts:</h4>
         {% for post in posts %}
