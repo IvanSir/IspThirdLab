@@ -1,0 +1,13 @@
+2021-06-02 20:10:56,179 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 20:11:02,064 users.views  INFO     New user registered: Alex228
+2021-06-02 20:11:02,583 users.views  INFO     sanek111 logged in
+2021-06-02 20:11:02,589 users.views  ERROR    failed login
+2021-06-02 20:11:03,398 users.views  ERROR     tried to update wrong acc
+2021-06-02 20:11:03,667 users.views  INFO     sanek111's new phone is 3523523
+2021-06-02 20:11:03,675 users.views  ERROR    sanek111 failed to change phone number
+2021-06-02 20:11:04,119 mainblog.views INFO     sanek111 created a post
+2021-06-02 20:11:04,357 django.request WARNING  Not Found: /post/sanek_title155610/remove
+2021-06-02 20:11:04,610 mainblog.views INFO     Post was deleted: sanek_title155610
+2021-06-02 20:11:04,858 mainblog.views ERROR    'sanek_title165610' was corrupted by wrong user
+2021-06-02 20:11:04,859 django.request WARNING  Not Found: /post/sanek_title165610/update
+2021-06-02 20:11:05,158 users.views  INFO      logged out

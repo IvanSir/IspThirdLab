@@ -17,6 +17,9 @@
         <br>
         <p><input type="submit" value="Create my account"></p>
     </form>
+    {% for message in messages %}
+                    <p id="messages">{{ message }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
 

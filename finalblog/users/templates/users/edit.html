@@ -14,6 +14,9 @@
         <br>
         <p><input type="submit" value="Edit"></p>
     </form>
+    {% for message in messages %}
+                    <p id="messages">{{ message }}</p>
+        {% endfor %}
     </div>
 {% endblock %}
 

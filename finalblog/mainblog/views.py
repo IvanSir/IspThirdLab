@@ -1,12 +1,12 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
-
-# Create your views here.
-from django.utils.text import slugify
-from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
-
-from mainblog.forms import PostCreateForm, PostUpdateForm
+from django.views.generic import ListView, DetailView, UpdateView
+from mainblog.forms import PostCreateForm
 from mainblog.models import Post
+from django.contrib import messages
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 class HomeView(ListView):
@@ -19,13 +19,13 @@ def create_post(request):
         if request.method == 'POST':
             post_form = PostCreateForm(request.POST)
             if post_form.is_valid():
-                # Create a new user object but avoid saving it yet
                 new_post = post_form.save(commit=False)
-                # Set the chosen password
                 new_post.author = request.user
-                # Save the User object
                 new_post.save()
+                logger.info("%s created a post" % request.user.username)
                 return redirect('home')
+            logger.error("%s failed to create a post" % request.user.username)
+            messages.error(request, "invalid data")
         else:
             post_form = PostCreateForm()
         return render(request, 'post/create.html', {'form': post_form})
@@ -38,9 +38,10 @@ class DetailPostView(DetailView):
 
 
 def delete_post(request, slug):
-    if request.method != 'POST' or Post.objects.filter(author=request.user, slug=slug) is None:
+    if not request.user.is_authenticated or Post.objects.filter(author=request.user, slug=slug) is None:
         raise Http404("No permission")
     Post.objects.filter(slug=slug).delete()
+    logger.info("Post was deleted: %s" % slug)
     return redirect('home')
 
 
@@ -52,5 +53,6 @@ class UpdatePostView(UpdateView):
     def get_object(self, queryset=None):
         obj = super(UpdatePostView, self).get_object(queryset)
         if obj.author != self.request.user:
+            logger.error("%a was corrupted by wrong user" % obj.slug)
             raise Http404("No permission")
         return obj

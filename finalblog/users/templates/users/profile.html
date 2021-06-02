@@ -3,22 +3,22 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <h2>{{ user.username}}</h2>
+    <h2>{{ cur_user.username}}</h2>
 <div>
     <form method="POST" action="">
         {% csrf_token %}
         <div>
-            first name: {{ user.first_name }}
+            first name: {{ cur_user.first_name }}
         </div>
         <div>
-            last name: {{ user.last_name }}
+            last name: {{ cur_user.last_name }}
         </div>
         <div>
-            email: {{ user.email }}
+            email: {{ cur_user.email }}
         </div>
     <div>
     phone: {{ account.phone }}
-    {% if user == request.user %}
+    {% if cur_user == request.user %}
         <small>
             <form action="" method="POST">
                     <a href="{% url 'update_account' user.pk %}">edit</a>

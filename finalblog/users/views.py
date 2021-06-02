@@ -1,5 +1,4 @@
-import profile
-
+from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
@@ -10,19 +9,21 @@ from .forms import UserRegistrationForm
 
 # Create your views here.
 from .models import Account
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 def register(request):
     if request.method == 'POST':
         user_form = UserRegistrationForm(request.POST)
         if user_form.is_valid():
-            # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
-            # Set the chosen password
             new_user.set_password(user_form.cleaned_data['password'])
-            # Save the User object
             new_user.save()
+            logger.info("New user registered: " + user_form.cleaned_data["username"])
             return render(request, 'home.html', {'new_user': new_user})
+        messages.error(request, "invalid data")
     else:
         user_form = UserRegistrationForm()
     return render(request, 'users/register.html', {'form': user_form})
@@ -35,14 +36,17 @@ def my_login(request):
 
         try:
             user = User.objects.get(username=username)
-            if user is None:
-                raise Exception
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                logger.info(username + " logged in")
                 return redirect('home')
+            messages.error(request, "Wrong password")
+            logger.info("failed login with username: " + username + "and password: " + password)
             return render(request, 'users/login.html', {})
         except:
+            messages.error(request, "No users with this username")
+            logger.error("failed login")
             return render(request, 'users/login.html', {})
     else:
         return render(request, 'users/login.html', {})
@@ -50,6 +54,7 @@ def my_login(request):
 
 def my_logout(request):
     if request.method == 'GET':
+        logger.info(request.user.username + " logged out")
         logout(request)
         return redirect('home')
 
@@ -61,7 +66,7 @@ class UserDetailView(DetailView):
     def get_context_data(self, **kwargs):
         us_id = self.request.path.split('/')[2]
         context = super(UserDetailView, self).get_context_data(**kwargs)
-        context['user'] = User.objects.get(id=us_id)
+        context['cur_user'] = User.objects.get(id=us_id)
         context['posts'] = Post.objects.select_related("author").filter(author_id=us_id)
         context['roles'] = Role.objects.prefetch_related("users").filter(users=context['user'])
         context['account'] = Account.objects.select_related("user").filter(user_id=us_id).first()
@@ -70,6 +75,7 @@ class UserDetailView(DetailView):
 
 def update_account(request, pk):
     if str(request.user.pk) != pk:
+        logger.error(request.user.username + " tried to update wrong acc")
         return redirect('home')
     if request.method == 'POST':
         phone = request.POST.get('phone')
@@ -81,8 +87,11 @@ def update_account(request, pk):
                 Account.objects.update(user=user, phone=phone)
             else:
                 Account.objects.create(user=user, phone=phone)
+            logger.info(user.username + "'s new phone is " + phone)
             return redirect('detail_user', pk)
         except:
+            messages.error(request, "invalid phone")
+            logger.error(user.username + " failed to change phone number")
             return render(request, 'users/edit.html', {})
     else:
         return render(request, 'users/edit.html', {})
