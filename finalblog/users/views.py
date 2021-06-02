@@ -41,6 +41,7 @@ def my_login(request):
             if user is not None:
                 login(request, user)
                 return redirect('home')
+            return render(request, 'users/login.html', {})
         except:
             return render(request, 'users/login.html', {})
     else:
@@ -63,7 +64,7 @@ class UserDetailView(DetailView):
         context['user'] = User.objects.get(id=us_id)
         context['posts'] = Post.objects.select_related("author").filter(author_id=us_id)
         context['roles'] = Role.objects.prefetch_related("users").filter(users=context['user'])
-        context['account'] = Account.objects.select_related("user").get(user_id=us_id)
+        context['account'] = Account.objects.select_related("user").filter(user_id=us_id).first()
         return context
 
 
