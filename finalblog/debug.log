@@ -11,3 +11,304 @@
 2021-06-02 20:11:04,858 mainblog.views ERROR    'sanek_title165610' was corrupted by wrong user
 2021-06-02 20:11:04,859 django.request WARNING  Not Found: /post/sanek_title165610/update
 2021-06-02 20:11:05,158 users.views  INFO      logged out
+2021-06-02 21:45:54,944 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 21:46:54,716 django.request WARNING  Not Found: /js/scripts.js
+2021-06-02 21:46:54,718 django.request WARNING  Not Found: /css/styles.css
+2021-06-02 21:46:55,205 django.request WARNING  Not Found: /css/styles.css
+2021-06-02 21:46:55,217 django.request WARNING  Not Found: /assets/img/home-bg.jpg
+2021-06-02 21:46:55,312 django.request WARNING  Not Found: /js/scripts.js
+2021-06-02 21:46:55,332 django.request WARNING  Not Found: /assets/favicon.ico
+2021-06-02 22:03:41,655 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/finalblog/settings.py changed, reloading.
+2021-06-02 22:03:41,657 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:03:42,029 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:08:14,171 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:08:14,285 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:35:14,024 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:35:16,131 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 3: 'static', expected 'endblock'. Did you forget to register or load this tag?
+2021-06-02 22:35:16,360 django.request WARNING  Not Found: /favicon.ico
+2021-06-02 22:35:55,730 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 470, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 472, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 522, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 3: 'static', expected 'endblock'. Did you forget to register or load this tag?
+2021-06-02 22:36:15,841 django.request ERROR    Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/base.py", line 204, in _get_response
+    response = response.render()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 170, in render
+    return self._render(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 905, in render_annotated
+    return self.render(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 127, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 124, in get_parent
+    return self.find_template(parent, context)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 103, in find_template
+    template, origin = context.template.engine.find_template(
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 212, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+2021-06-02 22:40:29,688 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:40:29,801 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:40:31,693 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:43:45,629 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/finalblog/settings.py changed, reloading.
+2021-06-02 22:43:45,630 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:43:45,875 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:47:05,251 django.request WARNING  Not Found: /home
+2021-06-02 22:47:11,106 django.request WARNING  Not Found: /home/
+2021-06-02 22:50:39,042 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:51:24,693 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/finalblog/settings.py changed, reloading.
+2021-06-02 22:51:24,693 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-02 22:51:24,943 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-02 22:53:15,027 django.request WARNING  Not Found: /favicon.ico
+2021-06-02 22:54:27,339 users.views  INFO     ivan logged in
+2021-06-02 23:18:18,962 users.views  INFO     ivan logged out
+2021-06-02 23:22:40,897 django.request WARNING  Not Found: /favicon.ico
+2021-06-02 23:22:46,655 users.views  INFO     ivan logged in
+2021-06-02 23:24:51,591 users.views  INFO     ivan logged out
+2021-06-02 23:36:42,626 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 09:38:34,248 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 09:49:52,633 users.views  INFO     ivan logged in
+2021-06-03 09:52:15,532 users.views  INFO     ivan logged out
+2021-06-03 10:13:08,906 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 10:20:01,001 users.views  INFO     New user registered: Alexander322
+2021-06-03 10:20:49,864 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/users/views.py changed, reloading.
+2021-06-03 10:20:49,864 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 10:20:50,389 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 10:21:10,636 users.views  INFO     Alexander322 logged in
+2021-06-03 10:21:39,821 users.views  ERROR    Alexander322 failed to change phone number
+2021-06-03 10:21:50,142 users.views  ERROR    Alexander322 failed to change phone number
+2021-06-03 10:22:56,867 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 10:22:57,031 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 11:26:53,870 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 11:27:12,236 users.views  ERROR    Alexander322 failed to change phone number
+2021-06-03 11:27:29,808 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/users/views.py changed, reloading.
+2021-06-03 11:27:29,808 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 11:27:30,364 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 11:27:35,691 users.views  ERROR    Alexander322 failed to change phone number to 3123123
+2021-06-03 11:28:16,681 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/users/views.py changed, reloading.
+2021-06-03 11:28:16,683 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 11:28:17,221 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 11:28:23,947 users.views  INFO     Alexander322's new phone is +37529111222
+2021-06-03 11:28:50,021 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/users/views.py changed, reloading.
+2021-06-03 11:28:50,021 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 11:28:50,463 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 11:29:16,189 users.views  INFO     Alexander322 logged out
+2021-06-03 11:39:43,965 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:16:24,702 django.request WARNING  Not Found: /users/register/assets/css/style.css
+2021-06-03 12:16:25,200 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:16:25,936 django.request WARNING  Not Found: /users/register/assets/css/style.css
+2021-06-03 12:16:47,138 django.request WARNING  Not Found: /css/style.css
+2021-06-03 12:23:19,463 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:25:31,055 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:26:47,178 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /users/register/
+2021-06-03 12:27:06,542 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /users/register/
+2021-06-03 12:27:15,740 django.security.csrf WARNING  Forbidden (CSRF token missing or incorrect.): /users/register/
+2021-06-03 12:39:19,675 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:40:48,535 users.views  INFO     failed login with username: ivanand password: qwerty123
+2021-06-03 12:41:26,694 users.views  INFO     failed login with username: ivanand password: qwerty123
+2021-06-03 12:41:28,793 users.views  INFO     ivan logged in
+2021-06-03 12:41:42,179 users.views  INFO     ivan logged out
+2021-06-03 12:55:32,282 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 12:55:58,491 users.views  INFO     ivan logged in
+2021-06-03 12:57:48,355 users.views  INFO     ivan logged out
+2021-06-03 12:58:01,767 users.views  INFO     ivan logged in
+2021-06-03 13:12:45,546 mainblog.views INFO     ivan created a post
+2021-06-03 13:14:47,718 users.views  INFO     ivan logged out
+2021-06-03 13:14:52,912 users.views  INFO     ivan logged in
+2021-06-03 13:15:07,072 mainblog.views INFO     Post was deleted: uvazhaemij-post3441
+2021-06-03 13:27:16,098 django.request WARNING  Not Found: /favicon.ico
+2021-06-03 13:39:02,788 users.views  INFO     ivan logged out
+2021-06-03 13:39:20,198 users.views  INFO     ivan logged in
+2021-06-03 13:40:40,241 django.request WARNING  Not Found: /users/6/
+2021-06-03 13:43:20,990 django.request ERROR    Internal Server Error: /users/3/update/
+Traceback (most recent call last):
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/users/views.py", line 97, in update_account
+    return render(request, 'users/edit.html', {})
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/shortcuts.py", line 19, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loaders/base.py", line 29, in get_template
+    return Template(
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 478, in parse
+    raise self.error(token, e)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ivan/PycharmProjects/SecondTryLab/trueblog/my_env/lib/python3.8/site-packages/django/template/loader_tags.py", line 212, in do_block
+    raise TemplateSyntaxError("'%s' tag with name '%s' appears more than once" % (bits[0], block_name))
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+2021-06-03 13:43:42,757 users.views  ERROR    ivan tried to update wrong acc
+2021-06-03 13:48:59,835 users.views  INFO     ivan logged out
+2021-06-03 13:49:06,868 users.views  INFO     qwerty logged in
+2021-06-03 13:49:51,953 users.views  INFO     qwerty's new phone is +3753396521
+2021-06-03 13:51:34,919 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/mainblog/forms.py changed, reloading.
+2021-06-03 13:51:34,920 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:51:35,297 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 13:51:46,489 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/mainblog/forms.py changed, reloading.
+2021-06-03 13:51:46,490 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:51:46,718 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 13:52:37,644 django.utils.autoreload INFO     /home/ivan/PycharmProjects/SecondTryLab/trueblog/MyBlog/finalblog/finalblog/urls.py changed, reloading.
+2021-06-03 13:52:37,645 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:52:37,898 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2021-06-03 13:52:39,886 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:52:40,000 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:52:52,656 asyncio      DEBUG    Using selector: EpollSelector
+2021-06-03 13:52:55,439 users.views  INFO     New user registered: Alex228
+2021-06-03 13:52:55,700 users.views  INFO     sanek111 logged in
+2021-06-03 13:52:55,703 users.views  ERROR    failed login
+2021-06-03 13:52:56,103 users.views  ERROR     tried to update wrong acc
+2021-06-03 13:52:56,240 users.views  INFO     sanek111's new phone is 3523523
+2021-06-03 13:52:56,244 users.views  ERROR    sanek111 failed to change phone number
+2021-06-03 13:52:56,511 mainblog.views INFO     sanek111 created a post
+2021-06-03 13:52:56,639 django.request WARNING  Not Found: /post/sanek_title155252/remove
+2021-06-03 13:52:56,773 mainblog.views INFO     Post was deleted: sanek_title155252
+2021-06-03 13:52:56,906 mainblog.views ERROR    'sanek_title165252' was corrupted by wrong user
+2021-06-03 13:52:56,907 django.request WARNING  Not Found: /post/sanek_title165252/update
+2021-06-03 13:52:57,066 users.views  INFO      logged out

@@ -3,11 +3,33 @@
 {% block title %}Profile{% endblock %}
 
 {% block content %}
-    <h2>{{ cur_user.username}}</h2>
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <div>
+
+{% load static %}
+<header class="masthead" style="background-image: url({% static 'img/user_page.jpg' %})">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h2 style="color:white;">{{ cur_user.username }}</h2>
+                            <h4>{{ cur_user.first_name }} {{ cur_user.last_name }}</h4>
+                            <h6>Roles:</h6>
+                            {% for role in roles %}
+                                {{ role }},
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</header>
+<form action="" method="POST">
+    {% csrf_token %}
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div>
             first name: {{ cur_user.first_name }}
         </div>
         <div>
@@ -21,12 +43,19 @@
     {% if cur_user == request.user %}
         <small>
             <form action="" method="POST">
-                    <a href="{% url 'update_account' user.pk %}">edit</a>
+                    <a href="{% url 'update_account' cur_user.pk %}">edit</a>
             </form>
         </small>
     {% endif %}
     </div>
-        <br>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </article>
+    <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
     <div>
         <h4>Posts:</h4>
         {% for post in posts %}
@@ -34,14 +63,16 @@
             <br>
         {% endfor %}
     </div>
-    <div>
-        <h4>Roles:</h4>
-        {% for role in roles %}
-            {{ role }}
-            <br>
-        {% endfor %}
+    </div>
+
+    </div>
     </div>
     </form>
-</div>
 {% endblock %}
+
+
+
+
+
+
 

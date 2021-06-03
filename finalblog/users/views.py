@@ -22,7 +22,7 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
             logger.info("New user registered: " + user_form.cleaned_data["username"])
-            return render(request, 'home.html', {'new_user': new_user})
+            return redirect('login')
         messages.error(request, "invalid data")
     else:
         user_form = UserRegistrationForm()
@@ -83,7 +83,7 @@ def update_account(request, pk):
         try:
             if phone is None:
                 raise Exception
-            if Account.objects.get(user=user) is not None:
+            if Account.objects.filter(user=user).first() is not None:
                 Account.objects.update(user=user, phone=phone)
             else:
                 Account.objects.create(user=user, phone=phone)
