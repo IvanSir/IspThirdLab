@@ -1,8 +1,8 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, UpdateView
-from mainblog.forms import PostCreateForm
-from mainblog.models import Post
+from .forms import PostCreateForm
+from .models import Post
 from django.contrib import messages
 import logging
 

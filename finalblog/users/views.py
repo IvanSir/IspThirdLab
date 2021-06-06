@@ -1,3 +1,5 @@
+import concurrent.futures
+
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
@@ -6,11 +8,9 @@ from django.views.generic import DetailView
 
 from mainblog.models import Post, Role
 from .forms import UserRegistrationForm
-
-# Create your views here.
 from .models import Account
 import logging
-
+import threading
 logger = logging.getLogger(__name__)
 
 
