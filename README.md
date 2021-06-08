@@ -1,4 +1,6 @@
 # 4 lab
+Heroku Deploy : https://blogbb228.herokuapp.com/
+-
 Docker images: 
 - web - https://registry.hub.docker.com/r/ivangin/finalblog-web
 - nginx - https://registry.hub.docker.com/r/ivangin/finalblog-nginx
