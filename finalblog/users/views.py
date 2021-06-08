@@ -1,17 +1,23 @@
 import concurrent.futures
-
+from finalblog import settings
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView
-
+from django.core.mail import EmailMessage
 from mainblog.models import Post, Role
 from .forms import UserRegistrationForm
 from .models import Account
 import logging
 import threading
+
 logger = logging.getLogger(__name__)
+
+
+def make_new_thread(func, *args, **kwargs):
+    new_thread = threading.Thread(target=func, args=args, kwargs=kwargs)
+    new_thread.start()
 
 
 def register(request):
@@ -22,6 +28,10 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             new_user.save()
             logger.info("New user registered: " + user_form.cleaned_data["username"])
+            email_body = "I'm glad you are here. Welcome to the best blogging website!"
+            email_subject = 'Welcome, my friend!'
+            email = EmailMessage(email_subject, email_body, 'trueblog89@gmail.com', to=[user_form.cleaned_data["email"]])
+            make_new_thread(email.send, fail_silently=False)
             return redirect('login')
         messages.error(request, "invalid data")
     else:
