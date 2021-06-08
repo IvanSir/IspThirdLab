@@ -10,7 +10,7 @@ Docker images:
 - .env.prod
 - .env.prod.db
 ### Then
-- run docker-compose -f docker-compose.prod.yml up 
+- run in terminal:  docker-compose -f docker-compose.prod.yml up 
 - go to http://0.0.0.0:1337 or http://127.0.0.1:1337
 
 ## Some screens:
